@@ -2,7 +2,7 @@ const cvs = document.querySelector('#c');
 const ctx = cvs.getContext('2d');
 
 cvs.width = 1080;
-cvs.height = 620;
+cvs.height = 500;
 
 
 const CW = cvs.width;
@@ -51,17 +51,14 @@ class Cube{
     for (let i = 0; i < this.verteces.length; i++){
         let v = this.verteces[i];
 
-        // apply rotation (Y axis)
         let x = v.x * Math.cos(angle) - v.z * Math.sin(angle);
         let z = v.x * Math.sin(angle) + v.z * Math.cos(angle);
         let y = v.y;
 
-        // apply translation
         x += X;
         y += Y;
         z += Z;
 
-        // perspective projection
         let px = d * x / (z + d);
         let py = d * y / (z + d);
 
@@ -72,9 +69,9 @@ class Cube{
     }
 
     const edges = [
-        [0,1],[1,3],[3,2],[2,0], // front
-        [4,5],[5,7],[7,6],[6,4], // back
-        [0,4],[1,5],[2,6],[3,7]  // sides
+        [0,1],[1,3],[3,2],[2,0],
+        [4,5],[5,7],[7,6],[6,4],
+        [0,4],[1,5],[2,6],[3,7] 
     ];
 
     for (let e of edges){
@@ -92,6 +89,7 @@ class Cube{
 const cubes = [];
 cubes[0] = new Cube(0,0,0,50);
 cubes[1] = new Cube(50,50,0,10);
+cubes[2] = new Cube(0,0,100,1000)
 
 const floor = [];
 floor[0] = new Vertex(1000,300,1000);
@@ -122,10 +120,10 @@ function engine(){
     ctx.lineWidth = 1;
     ctx.beginPath();
 
-    if (keysDown["ArrowLeft"]){angle += 0.1;};
-    if (keysDown["ArrowRight"]){angle -= 0.1;};
-    if (keysDown["ArrowDown"]){Y += 8;};
-    if (keysDown["ArrowUp"]){Y -= 8;};
+    if (keysDown["ArrowLeft"]){angle -= 0.01;};
+    if (keysDown["ArrowRight"]){angle += 0.01;};
+    if (keysDown["ArrowDown"]){Y -= 8;};
+    if (keysDown["ArrowUp"]){Y += 8;};
     if (keysDown["A"] || keysDown["a"]){X += 5;}
     if (keysDown["D"] || keysDown["d"]){X -= 5;}
     if (keysDown["W"] || keysDown["w"]){Z -= 5;}
