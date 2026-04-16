@@ -1,0 +1,20 @@
+.maincontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: yellowgreen;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
