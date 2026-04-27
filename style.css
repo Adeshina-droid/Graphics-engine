@@ -1,9 +1,21 @@
-.maincontainer {
+
+.body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: yellowgreen;
-    flex-direction: column;
+    background-color: gray;
+}
+.maincontainer {
+    margin: auto;
+    display: flex;
+    padding: 20px;
+    background: rgb(0, 0, 0);
+    flex-wrap: wrap;
+    height: 600px;
+    width: 1200px;
+    border-radius: 25px;
+    justify-content: center;
+    align-items: center;
 }
 
 .buttons {
@@ -21,13 +33,52 @@
 }
 
 .text{
-    border: 1px solid black;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 20px;
-    background-color: aqua;
-    height: 80px;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Orbitron', sans-serif;
+
+    animation: text 1.5s ease-in-out infinite alternate;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background: #222;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    width: 120px;
+}
+
+.dropdown p {
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.dropdown p:hover {
+    background: #773964;
+}
+
+@keyframes text {
+  from {
+    text-shadow:
+      0 0 2px #d8ffd8,
+      0 0 4px #d8ffd8,
+      0 0 6px #b8ffb8,
+      0 0 8px #b8ffb8;
+  }
+
+  to {
+    text-shadow:
+      0 0 3px #d8ffd8,
+      0 0 5px #d8ffd8,
+      0 0 7px #b8ffb8,
+      0 0 10px #b8ffb8;
+  }
+}
+
+.canvas {
+    border: 2px solid #e7ff5e;
 }
